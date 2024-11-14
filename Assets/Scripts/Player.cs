@@ -47,4 +47,12 @@ public class Player : MonoBehaviour
     private void LaserDestroyed() {
         _laserActive = false;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("Missile"))
+        {
+            Destroy(this.gameObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+    }
 }

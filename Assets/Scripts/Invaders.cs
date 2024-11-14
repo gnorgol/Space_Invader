@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Invaders : MonoBehaviour
 {
@@ -79,6 +80,11 @@ public class Invaders : MonoBehaviour
     private void InverderKilled()
     {
         amountKilled++;
+        if (amountKilled >= totalInvaders)
+        {
+            Debug.Log("You win!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     private void MissileAttack()
     {
