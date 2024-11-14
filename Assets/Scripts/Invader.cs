@@ -4,4 +4,15 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
+    public System.Action killed;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        {
+            gameObject.SetActive(false);
+            killed.Invoke();
+
+            Destroy(this.gameObject);
+        }
+    }
 }

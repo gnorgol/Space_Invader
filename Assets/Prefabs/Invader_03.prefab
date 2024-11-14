@@ -13,6 +13,18 @@ PrefabInstance:
       value: Invader_03
       objectReference: {fileID: 0}
     - target: {fileID: 3862015337829221601, guid: 62163063ec871194e85a3fafb5aa7bc2, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862015337829221601, guid: 62163063ec871194e85a3fafb5aa7bc2, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862015337829221601, guid: 62163063ec871194e85a3fafb5aa7bc2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862015337829221601, guid: 62163063ec871194e85a3fafb5aa7bc2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
