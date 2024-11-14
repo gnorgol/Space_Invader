@@ -2,9 +2,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Projectile laserPrefab;
+
     public float speed = 5.0f;
 
+    private bool _laserActive;
+
     private void Update()
+    {
+        MovePlayer();
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+
+        }
+    }
+
+    private void MovePlayer()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -19,5 +33,18 @@ public class Player : MonoBehaviour
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, leftEdge.x, rightEdge.x);
         transform.position = clampedPosition;
+    }
+    private void Shoot()
+    {
+        if (!_laserActive)
+        {
+            Projectile laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            laser.destroyed +=  LaserDestroyed;
+            laser.direction = Vector3.up;
+            _laserActive = true;
+        }
+    }
+    private void LaserDestroyed() {
+        _laserActive = false;
     }
 }
