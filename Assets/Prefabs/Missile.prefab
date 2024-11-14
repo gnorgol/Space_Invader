@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6360082880641101212}
   - component: {fileID: 5428502858452524741}
   - component: {fileID: 9136631967666412307}
-  m_Layer: 8
-  m_Name: Laser
+  m_Layer: 9
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15e635e395e82f54ba7c93a9f5fa76d7, type: 3}
-  m_Color: {r: 0.29462504, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 074bd93c09bd0a54c860b549755e9e03, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff6fa0e96d7bde4f8d801f948f9f067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1, z: 0}
-  speed: 30
+  direction: {x: 0, y: -1, z: 0}
+  speed: 20
 --- !u!61 &5428502858452524741
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.125, y: 0.375}
+    oldSize: {x: 0.375, y: 0.75}
     newSize: {x: 0.125, y: 0.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

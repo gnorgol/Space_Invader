@@ -565,6 +565,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  missilePrefab: {fileID: 6360082880641101212, guid: eb7f04eb152a3fe47b82823afffe49cd, type: 3}
+  missileAttackRate: 1
 --- !u!4 &699109609
 Transform:
   m_ObjectHideFlags: 0
