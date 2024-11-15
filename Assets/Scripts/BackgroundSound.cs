@@ -23,17 +23,24 @@ public class BackgroundSound : MonoBehaviour
     {
         while (true)
         {
-            audioSource.clip = audioClips[currentClipIndex];
-            audioSource.Play();
-            float adjustedTempo = baseTempo;
-            if (Invaders.instance != null)
+            if (GameManager.Instance.IsGameOver == false) 
             {
-                // Ajuster le tempo en fonction de la progression des ennemis tués
-                adjustedTempo = Mathf.Max(minTempo, baseTempo * (1.0f - Invaders.instance.progressInvadersKilled));
-                Debug.Log("Tempo: " + adjustedTempo);
+                audioSource.clip = audioClips[currentClipIndex];
+                audioSource.Play();
+                float adjustedTempo = baseTempo;
+                if (Invaders.instance != null)
+                {
+                    // Ajuster le tempo en fonction de la progression des ennemis tués
+                    adjustedTempo = Mathf.Max(minTempo, baseTempo * (1.0f - Invaders.instance.progressInvadersKilled));
+                }
+                yield return new WaitForSeconds(audioSource.clip.length + adjustedTempo); // Attendre la fin du clip + tempo ajusté
+                currentClipIndex = (currentClipIndex + 1) % audioClips.Length; // Passer au clip suivant
             }
-            yield return new WaitForSeconds(audioSource.clip.length + adjustedTempo); // Attendre la fin du clip + tempo ajusté
-            currentClipIndex = (currentClipIndex + 1) % audioClips.Length; // Passer au clip suivant
+            else
+            {
+                audioSource.Pause();
+                yield return null; // Attendre jusqu'à la prochaine frame
+            }
         }
     }
 

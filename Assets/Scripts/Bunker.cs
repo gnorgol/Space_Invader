@@ -25,7 +25,7 @@ public class Bunker : MonoBehaviour
         ResetBunker();
     }
 
-    private void ResetBunker()
+    public void ResetBunker()
     {
         CopyTexture(originalTexture);
 

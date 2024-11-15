@@ -7,9 +7,6 @@ public class Player : MonoBehaviour
 
     public float speed = 5.0f;
 
-
-
-    //Audio 
     public AudioClip laserSound;
     public AudioClip explosionSound;
 
@@ -54,8 +51,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("Missile"))
         {
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
-            Destroy(this.gameObject);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            GameManager.Instance.OnPlayerKilled(this);
         }
     }
 }
