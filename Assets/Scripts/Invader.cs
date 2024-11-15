@@ -10,7 +10,9 @@ public class Invader : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
             gameObject.SetActive(false);
-            killed.Invoke();
+            if (killed != null)
+                killed.Invoke();
+        
 
             Destroy(this.gameObject);
         }

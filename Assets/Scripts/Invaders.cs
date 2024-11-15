@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class Invaders : MonoBehaviour
 {
+    public static Invaders instance;
     public Invader[] prefabs;
     public int row = 5;
     public int column = 11;
     public AnimationCurve speed;
     public Projectile missilePrefab;
     public float missileAttackRate = 1.0f;
+    public AudioClip invaderKilledSound;
 
     public int amountKilled { get; private set; }
     public int totalInvaders => row * column;
@@ -24,6 +27,10 @@ public class Invaders : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         for (int i = 0; i < row; i++)
         {
             float width = (column-1) * 2.0f;
@@ -80,6 +87,7 @@ public class Invaders : MonoBehaviour
     private void InverderKilled()
     {
         amountKilled++;
+        AudioSource.PlayClipAtPoint(invaderKilledSound, transform.position);
         if (amountKilled >= totalInvaders)
         {
             Debug.Log("You win!");

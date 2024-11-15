@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
     public Projectile laserPrefab;
@@ -8,22 +8,25 @@ public class Player : MonoBehaviour
 
     private bool _laserActive;
 
+    //Audio 
+    public AudioClip laserSound;
+    public AudioClip explosionSound;
+
+
     private void Update()
     {
         MovePlayer();
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
-
         }
     }
 
     private void MovePlayer()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
+        Vector3 direction = new Vector3(horizontal, 0.0f, 0.0f);
         transform.position += direction * speed * Time.deltaTime;
 
         // Clamp the position of the character so they do not go out of bounds
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
     {
         if (!_laserActive)
         {
+            AudioSource.PlayClipAtPoint(laserSound, transform.position);
             Projectile laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
             laser.destroyed +=  LaserDestroyed;
             laser.direction = Vector3.up;
@@ -51,6 +55,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("Missile"))
         {
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
             Destroy(this.gameObject);
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
