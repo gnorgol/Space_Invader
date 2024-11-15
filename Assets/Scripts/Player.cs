@@ -3,10 +3,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Projectile laserPrefab;
+    private Projectile _laser;
 
     public float speed = 5.0f;
 
-    private bool _laserActive;
+
 
     //Audio 
     public AudioClip laserSound;
@@ -39,18 +40,15 @@ public class Player : MonoBehaviour
     }
     private void Shoot()
     {
-        if (!_laserActive)
+        if (_laser == null)
         {
             AudioSource.PlayClipAtPoint(laserSound, transform.position);
-            Projectile laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-            laser.destroyed +=  LaserDestroyed;
-            laser.direction = Vector3.up;
-            _laserActive = true;
+            _laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            _laser.direction = Vector3.up;
+
         }
     }
-    private void LaserDestroyed() {
-        _laserActive = false;
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("Missile"))

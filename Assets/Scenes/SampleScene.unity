@@ -414,7 +414,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 6360082880641101212, guid: 34235cbd904d92c4e85d9b9029e7e843, type: 3}
   speed: 5
   laserSound: {fileID: 8300000, guid: d155a32c52231224c8ded44c1f8859d0, type: 3}
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: 93924309227ab314ebca2f87ee13236a, type: 3}
 --- !u!82 &434026960
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727e352bd98c4c43b56b94244434fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splat: {fileID: 2800000, guid: 1db75dd456e8a3c478f0179b5185f16b, type: 3}
 --- !u!1 &1330753640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727e352bd98c4c43b56b94244434fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splat: {fileID: 2800000, guid: 1db75dd456e8a3c478f0179b5185f16b, type: 3}
 --- !u!1 &1625187656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727e352bd98c4c43b56b94244434fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splat: {fileID: 2800000, guid: 1db75dd456e8a3c478f0179b5185f16b, type: 3}
 --- !u!1 &1948744000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727e352bd98c4c43b56b94244434fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splat: {fileID: 2800000, guid: 1db75dd456e8a3c478f0179b5185f16b, type: 3}
 --- !u!1 &1994962061
 GameObject:
   m_ObjectHideFlags: 0
